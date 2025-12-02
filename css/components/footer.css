@@ -3,9 +3,9 @@
    =========================== */
 
 .footer {
-  background-color: var(--color-dark-secondary);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding: var(--spacing-xxl) var(--spacing-md);
+  background-color: black;
+  border-top: 1px solid rgb(255, 255, 255);
+  padding: 20px;
   margin-top: var(--spacing-xxl);
 }
 
@@ -70,7 +70,7 @@
 
 /* Footer Bottom */
 .footer__bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+
   padding-top: var(--spacing-xl);
   display: flex;
   flex-direction: column;
@@ -93,7 +93,7 @@
 }
 
 .footer__bottom-text {
-  color: var(--color-gray);
+  color: white;
   font-size: var(--font-size-sm);
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -106,7 +106,7 @@
 }
 
 .footer__social-title {
-  color: var(--color-gray);
+  color: white;
   font-size: var(--font-size-sm);
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -137,8 +137,8 @@
   font-size: 12px;
   font-weight: 300;
   text-align: center;
-  padding-top: var(--spacing-md);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: var(--spacing-lg) var(--spacing-md);
+  border-top: 1px solid rgba(255, 255, 255, 1);
 }
 
 /* Contactanos Section */
@@ -148,9 +148,8 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: var(--spacing-xxl) var(--spacing-md);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  margin-top: var(--spacing-xxl);
+  padding: 10px;
+
 }
 
 .footer__contactanos-title {
@@ -160,6 +159,16 @@
   letter-spacing: -0.02em;
   line-height: 1;
 }
+
+
+.footer__contactanos-title a {
+  color: white;
+}
+
+.footer__contactanos-title a:hover {
+  color: #1641F2;
+}
+
 
 @media (max-width: 768px) {
   .footer__contactanos-title {
@@ -176,16 +185,18 @@
 }
 
 .footer__contactanos-link {
-  color: var(--color-gray);
+  color: white;
   font-size: var(--font-size-sm);
   text-transform: uppercase;
+  font-weight: 400;
   letter-spacing: 0.05em;
   text-decoration: none;
   transition: color var(--transition-base);
 }
 
 .footer__contactanos-link:hover {
-  color: var(--color-primary);
+  color: white;
+  font-weight: 700;
 }
 
 .footer__contactanos-social {
@@ -199,7 +210,7 @@
   justify-content: center;
   width: 40px;
   height: 40px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: none;
   border-radius: var(--border-radius-md);
   color: var(--color-light);
   text-decoration: none;
@@ -207,7 +218,5 @@
 }
 
 .footer__contactanos-social-link:hover {
-  background-color: var(--color-primary);
-  border-color: var(--color-primary);
-  color: var(--color-dark);
+  color: var(--color-primary);
 }

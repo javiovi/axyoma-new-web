@@ -153,10 +153,10 @@
   window.addEventListener('scroll', function() {
     const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
 
-    if (currentScrollPosition > 100) {
-      header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.2)';
+    if (currentScrollPosition > 50) {
+      header.classList.add('scrolled');
     } else {
-      header.style.boxShadow = 'none';
+      header.classList.remove('scrolled');
     }
 
     lastScrollPosition = currentScrollPosition;
