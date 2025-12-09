@@ -7,9 +7,10 @@
   <title>Axyoma - Marketing Digital 360°</title>
 
   <!-- Fuentes -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital@0;1&display=swap" rel="stylesheet">
 
   <!-- CSS -->
@@ -58,19 +59,24 @@
     <section class="hero">
       <div class="hero__container">
         <div class="hero__content">
-          <h1 class="hero__title">Lo que creés, erés.</h1>
-          <p class="hero__subtitle">Estrategias de comunicación, marketing digital y experiencias que hacen crecer negocios en movimiento.</p>
-          <p class="hero__description">
-            Somos una agencia de marketing digital 360° con base en Rosario y alcance regional.
-            Transformamos ideas en resultados medibles para marcas que quieren crecer.
+          <h1 class="hero__title">
+            <span class="hero__title-part hero__title-part--first">Lo que creés,</span><span class="hero__title-part hero__title-part--second">creás.</span>
+          </h1>
+          <p class="hero__subtitle">
+            <span class="hero__subtitle-word">ESTRATEGIAS</span>
+            <span class="hero__subtitle-word">DE</span>
+            <span class="hero__subtitle-word">COMUNICACIÓN,</span>
+            <span class="hero__subtitle-word">MARKETING</span>
+            <span class="hero__subtitle-word">DIGITAL</span>
+            <span class="hero__subtitle-word">Y</span>
+            <span class="hero__subtitle-word">EXPERIENCIAS</span>
+            <span class="hero__subtitle-word">QUE</span>
+            <span class="hero__subtitle-word">HACEN</span>
+            <span class="hero__subtitle-word">CRECER</span>
+            <span class="hero__subtitle-word">NEGOCIOS</span>
+            <span class="hero__subtitle-word">EN</span>
+            <span class="hero__subtitle-word">MOVIMIENTO.</span>
           </p>
-          <div class="hero__cta">
-            <a href="pages/contacto.html" class="btn btn--primary">Empecemos juntos</a>
-          </div>
-        </div>
-        <div class="hero__image-placeholder">
-          <!-- PLACEHOLDER: Hero image irá aquí -->
-          Imagen Hero
         </div>
       </div>
     </section>
@@ -78,88 +84,124 @@
     <!-- SECCIÓN NOSOTROS -->
     <section class="section about">
       <div class="about__container">
-        <div class="about__image-placeholder">
-          <!-- PLACEHOLDER: Foto del equipo -->
-          Foto Equipo
+        <div class="about__image">
+          <img src="assets/images/image-nosotros.jpg" alt="Equipo Axyoma" class="about__team-photo">
         </div>
         <div class="about__content">
           <h2 class="about__title">Nosotros</h2>
-          <p class="about__text">
-            Desde 2008 trabajamos con empresas que entienden que la comunicación es estrategia.
-            Hemos acompañado a decenas de marcas en su transformación digital.
+          <p class="about__tagline">
+            Desde 2008, en <span class="about__tagline-brand">Axyoma</span><br>
+            <span class="about__tagline-underline">hacemos simple lo complejo.</span>
           </p>
           <p class="about__text">
-            Nuestro enfoque es simple: entender el negocio, diseñar soluciones inteligentes
-            y medir resultados. Cada proyecto es una oportunidad para crear conexiones
-            reales entre marcas y sus audiencias.
+            Combinamos estrategia, creatividad y tecnología para que empresas del agro, la salud y la industria puedan comunicar con claridad y crecer con impacto.
           </p>
-          <a href="pages/nosotros.html" class="btn btn--secondary">Conocer más</a>
+          <p class="about__text">
+            Con presencia en Argentina y Paraguay, trabajamos con una metodología ágil, colaborativa y orientada a resultados.
+          </p>
+          <p class="about__text">
+            Porque en un mundo en movimiento, es clave ser flexibles y claros.
+          </p>
+          <div class="about__links">
+            <a href="pages/nosotros.html" class="about__link">conocemos</a>
+            <a href="pages/sumate.html" class="about__link">sumate</a>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- SECCIÓN SERVICIOS -->
     <section class="section services">
-      <div class="section__container">
-        <h2 class="section__title">Nuestro trabajo</h2>
-        <p class="section__subtitle">Servicios que ofrecemos</p>
-
-        <div class="services__grid">
-          <!-- Servicio 1 -->
-          <div class="services__item">
-            <div class="services__icon-placeholder">
-              <!-- ICON: Estrategia -->
-              📊
+      <div class="services__slider-container">
+        <div class="services__slider">
+          <!-- Card 1: Consultoría Estratégica -->
+          <div class="services__card">
+            <div class="services__icon-wrapper">
+              <img src="assets/images/icon-1.svg" alt="Consultoría Estratégica" class="services__icon">
             </div>
-            <h3 class="services__title">Estrategia</h3>
-            <p class="services__description">
-              Análisis, investigación y planificación estratégica para tu negocio.
-              Definimos objetivos medibles y acciones concretas.
-            </p>
+            <h3 class="services__card-title">Consultoría Estratégica</h3>
+            <ul class="services__list">
+              <li>Auditoría de marca, competencia y mercado</li>
+              <li>Definición de objetivos y propuesta de valor</li>
+              <li>Plan anual de marketing y comunicación</li>
+          
+            </ul>
           </div>
 
-          <!-- Servicio 2 -->
-          <div class="services__item">
-            <div class="services__icon-placeholder">
-              <!-- ICON: Marketing Digital -->
-              📱
+          <!-- Card 2: Comunicación & Marketing Digital 360° -->
+          <div class="services__card">
+            <div class="services__icon-wrapper">
+              <img src="assets/images/icon-3.svg" alt="Marketing Digital" class="services__icon">
             </div>
-            <h3 class="services__title">Marketing Digital</h3>
-            <p class="services__description">
-              Campañas integradas en redes sociales, email marketing,
-              publicidad digital y posicionamiento en buscadores.
-            </p>
+            <h3 class="services__card-title">Comunicación &<br>Marketing Digital 360°</h3>
+            <ul class="services__list">
+              <li>Estrategia de contenidos y storytelling</li>
+              <li>Gestión de redes y campañas multicanal</li>
+              <li>Activaciones, marketing experiencial y optimización</li>
+    
+            </ul>
           </div>
 
-          <!-- Servicio 3 -->
-          <div class="services__item">
-            <div class="services__icon-placeholder">
-              <!-- ICON: Desarrollo -->
-              💻
+          <!-- Card 3: Diseño & Branding -->
+          <div class="services__card">
+            <div class="services__icon-wrapper">
+              <img src="assets/images/icon-4.svg" alt="Diseño & Branding" class="services__icon">
             </div>
-            <h3 class="services__title">Desarrollo Web</h3>
-            <p class="services__description">
-              Sitios web responsivos, aplicaciones web y soluciones
-              tecnológicas para tu marca.
-            </p>
+            <h3 class="services__card-title">Diseño & Branding</h3>
+            <ul class="services__list">
+              <li>Identidad visual, logotipo y manual de marca</li>
+              <li>Diseño de piezas digitales e <br>impresas</li>
+              <li>Branding de productos, packaging y campañas</li>
+           
+            </ul>
           </div>
 
-          <!-- Servicio 4 -->
-          <div class="services__item">
-            <div class="services__icon-placeholder">
-              <!-- ICON: Automatización -->
-              ⚙️
+          <!-- Card 4: Productora Audiovicial -->
+          <div class="services__card">
+            <div class="services__icon-wrapper">
+              <img src="assets/images/icon-8.svg" alt="Desarrollo Web" class="services__icon">
             </div>
-            <h3 class="services__title">Automatización</h3>
-            <p class="services__description">
-              Herramientas y procesos que agilizan tu operación.
-              CRM, email automation, y más.
-            </p>
+            <h3 class="services__card-title">Productora Audiovisual</h3>
+            <ul class="services__list">
+              <li>Fotografía de producto, institucional y lifestyle</li>
+              <li>Videos corporativos, publicitarios y sociales</li>
+              <li>Animaciones y cobertura audiovisual de eventos</li>
+            
+            </ul>
+          </div>
+
+          <!-- Card 5: Data & Automatización -->
+          <div class="services__card">
+            <div class="services__icon-wrapper">
+              <img src="assets/images/icon-6.svg" alt="Data & Automatización" class="services__icon">
+            </div>
+            <h3 class="services__card-title">Desarrollo web & Experiencia digital</h3>
+            <ul class="services__list">
+              <li>Sitios corporativos, landings y e-commerce</li>
+              <li>Diseño UX/UI y optimización de conversión </li>
+              <li>Mantenimiento y soporte técnico</li>
+        
+            </ul>
+          </div>
+
+          <!-- Card 6: Productora Audiovisual -->
+          <div class="services__card">
+            <div class="services__icon-wrapper">
+              <img src="assets/images/icon-7.svg" alt="Productora Audiovisual" class="services__icon">
+            </div>
+            <h3 class="services__card-title">Data & Automatización</h3>
+            <ul class="services__list">
+              <li>Chatbots, asistentes virtuales e integraciones CRM</li>
+              <li>Automatización de procesos y atención</li>
+              <li>Dashboards, análisis de datos e IA aplicada</li>
+          
+            </ul>
           </div>
         </div>
 
-        <div class="text-center mt-5">
-          <a href="pages/servicios.html" class="btn btn--secondary">Ver todos los servicios</a>
+        <!-- Slider Navigation Bar -->
+        <div class="services__nav">
+          <div class="services__nav-bar"></div>
         </div>
       </div>
     </section>

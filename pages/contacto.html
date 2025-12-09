@@ -8,10 +8,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital@0;1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
-  <link rel="stylesheet" href="../../css/components/header.css">
-  <link rel="stylesheet" href="../../css/components/footer.css">
-  <link rel="stylesheet" href="../../css/components/buttons.css">
-  <link rel="stylesheet" href="../../css/components/cards.css">
+  <link rel="stylesheet" href="../css/components/header.css">
+  <link rel="stylesheet" href="../css/components/footer.css">
+  <link rel="stylesheet" href="../css/components/buttons.css">
+  <link rel="stylesheet" href="../css/components/cards.css">
+  <link rel="stylesheet" href="../css/pages/home.css">
 </head>
 <body>
 
@@ -202,8 +203,7 @@
   <!-- FOOTER -->
   <footer class="footer">
     <div class="footer__contactanos">
-      <h2 class="footer__contactanos-title">CONTACTANOS</h2>
-
+      <!-- Links arriba -->
       <nav class="footer__contactanos-nav">
         <a href="nosotros.html" class="footer__contactanos-link">Nosotros</a>
         <a href="servicios.html" class="footer__contactanos-link">Servicios</a>
@@ -213,28 +213,35 @@
         <a href="sumate.html" class="footer__contactanos-link">Sumate</a>
       </nav>
 
-      <div style="border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: var(--spacing-lg); width: 100%; display: flex; flex-direction: column; gap: var(--spacing-lg); align-items: center;">
+      <!-- CONTACTANOS Título -->
+      <h2 class="footer__contactanos-title"><a href="contacto.html">CONTACTANOS</a>
+    </h2>
+
+
+
+      <!-- Bottom section con DE ROSARIO AL MUNDO y SEGUINOS -->
+      <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; padding: var(--spacing-lg) 0;">
         <p class="footer__bottom-text">DE ROSARIO AL MUNDO</p>
 
         <div class="footer__social">
           <span class="footer__social-title">SEGUINOS</span>
-          <a href="#" class="footer__social-link" aria-label="Facebook" title="Facebook">
+          <a href="#" class="footer__contactanos-social-link" aria-label="Facebook" title="Facebook">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M24 12C24 5.37244 18.6276 0 12 0C5.37244 0 0 5.37244 0 12C0 17.9893 4.38756 22.9547 10.1244 23.8542V15.4684H7.07733V12H10.1244V9.35645C10.1244 6.34844 11.9164 4.688 14.6578 4.688C15.9716 4.688 17.344 4.92267 17.344 4.92267V7.87556H15.8311C14.3413 7.87556 13.8756 8.8 13.8756 9.74933V12H17.2036L16.672 15.4684H13.8756V23.8542C19.6124 22.9547 24 17.9893 24 12Z" fill="white"/>
+              <path d="M24 12C24 5.37244 18.6276 0 12 0C5.37244 0 0 5.37244 0 12C0 17.9893 4.38756 22.9547 10.1244 23.8542V15.4684H7.07733V12H10.1244V9.35645C10.1244 6.34844 11.9164 4.688 14.6578 4.688C15.9716 4.688 17.344 4.92267 17.344 4.92267V7.87556H15.8311C14.3413 7.87556 13.8756 8.8 13.8756 9.74933V12H17.2036L16.672 15.4684H13.8756V23.8542C19.6124 22.9547 24 17.9893 24 12Z" fill="currentColor"/>
             </svg>
           </a>
-          <a href="#" class="footer__social-link" aria-label="Instagram" title="Instagram">
+          <a href="#" class="footer__contactanos-social-link" aria-label="Instagram" title="Instagram">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 24C18.6274 24 24 18.6274 24 12C24 5.37258 18.6274 0 12 0C5.37259 0 0 5.37258 0 12C0 18.6274 5.37259 24 12 24Z" fill="white"/>
+              <path d="M12 24C18.6274 24 24 18.6274 24 12C24 5.37258 18.6274 0 12 0C5.37259 0 0 5.37258 0 12C0 18.6274 5.37259 24 12 24Z" fill="currentColor"/>
               <path d="M12.0002 5.80611C14.018 5.80611 14.2562 5.81322 15.0526 5.85056C15.7886 5.88434 16.1886 6.007 16.4553 6.11011C16.8073 6.247 17.0598 6.41056 17.3246 6.67545C17.5895 6.94034 17.7531 7.191 17.89 7.54478C17.9931 7.81145 18.1158 8.21145 18.1495 8.94745C18.1851 9.74389 18.194 9.98389 18.194 11.9999C18.194 14.0159 18.1869 14.2559 18.1495 15.0523C18.1158 15.7883 17.9931 16.1883 17.89 16.455C17.7531 16.807 17.5895 17.0594 17.3246 17.3243C17.0598 17.5892 16.8091 17.7528 16.4553 17.8897C16.1886 17.9928 15.7886 18.1154 15.0526 18.1492C14.2562 18.1848 14.018 18.1937 12.0002 18.1937C9.98243 18.1937 9.7442 18.1866 8.94776 18.1492C8.21176 18.1154 7.81176 17.9928 7.54509 17.8897C7.19309 17.7528 6.94065 17.5892 6.67576 17.3243C6.41087 17.0594 6.24732 16.8088 6.11043 16.455C6.00732 16.1883 5.88465 15.7883 5.85087 15.0523C5.81531 14.2559 5.80642 14.0159 5.80642 11.9999C5.80642 9.98389 5.81353 9.74389 5.85087 8.94745C5.88465 8.21145 6.00732 7.81145 6.11043 7.54478C6.24732 7.19278 6.41087 6.94034 6.67576 6.67545C6.94065 6.41056 7.19131 6.247 7.54509 6.11011C7.81176 6.007 8.21176 5.88434 8.94776 5.85056C9.7442 5.815 9.9842 5.80611 12.0002 5.80611ZM12.0002 4.44434C9.94865 4.44434 9.69087 4.45322 8.88554 4.49056C8.08198 4.52789 7.53265 4.65411 7.05087 4.84256C6.55487 5.03634 6.13353 5.29411 5.7122 5.71367C5.29265 6.13322 5.03309 6.55456 4.84109 7.05234C4.65442 7.53233 4.52642 8.08167 4.48909 8.887C4.45176 9.69234 4.44287 9.95011 4.44287 12.0017C4.44287 14.0532 4.45176 14.311 4.48909 15.1163C4.52642 15.9199 4.65265 16.4692 4.84109 16.951C5.03487 17.447 5.29265 17.8683 5.7122 18.2897C6.13176 18.7092 6.55309 18.9688 7.05087 19.1608C7.53087 19.3474 8.0802 19.4754 8.88554 19.5128C9.69087 19.5501 9.94865 19.559 12.0002 19.559C14.0518 19.559 14.3095 19.5501 15.1149 19.5128C15.9184 19.4754 16.4678 19.3492 16.9495 19.1608C17.4455 18.967 17.8669 18.7092 18.2882 18.2897C18.7078 17.8701 18.9673 17.4488 19.1593 16.951C19.346 16.471 19.474 15.9217 19.5113 15.1163C19.5486 14.311 19.5575 14.0532 19.5575 12.0017C19.5575 9.95011 19.5486 9.69234 19.5113 8.887C19.474 8.08345 19.3478 7.53411 19.1593 7.05234C18.9655 6.55634 18.7078 6.135 18.2882 5.71367C17.8686 5.29411 17.4473 5.03456 16.9495 4.84256C16.4695 4.65589 15.9202 4.52789 15.1149 4.49056C14.3095 4.45322 14.0518 4.44434 12.0002 4.44434Z" fill="black"/>
               <path d="M12.0002 8.12061C9.85798 8.12061 8.12109 9.85749 8.12109 11.9997C8.12109 14.1419 9.85798 15.8788 12.0002 15.8788C14.1424 15.8788 15.8793 14.1419 15.8793 11.9997C15.8793 9.85749 14.1424 8.12061 12.0002 8.12061ZM12.0002 14.5188C10.61 14.5188 9.48109 13.3917 9.48109 11.9997C9.48109 10.6077 10.6082 9.48061 12.0002 9.48061C13.3922 9.48061 14.5193 10.6077 14.5193 11.9997C14.5193 13.3917 13.3922 14.5188 12.0002 14.5188Z" fill="black"/>
               <path d="M16.0341 8.87242C16.5349 8.87242 16.9408 8.46649 16.9408 7.96575C16.9408 7.46501 16.5349 7.05908 16.0341 7.05908C15.5334 7.05908 15.1274 7.46501 15.1274 7.96575C15.1274 8.46649 15.5334 8.87242 16.0341 8.87242Z" fill="black"/>
             </svg>
           </a>
-          <a href="#" class="footer__social-link" aria-label="X (Twitter)" title="X">
+          <a href="#" class="footer__contactanos-social-link" aria-label="X (Twitter)" title="X">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <g clip-path="url(#clip0_1101_187)">
-                <path d="M20.4861 20.4853C25.1724 15.799 25.1724 8.20101 20.4861 3.51472C15.7998 -1.17157 8.20185 -1.17157 3.51555 3.51472C-1.17074 8.20101 -1.17074 15.799 3.51555 20.4853C8.20185 25.1716 15.7998 25.1716 20.4861 20.4853Z" fill="white"/>
+                <path d="M20.4861 20.4853C25.1724 15.799 25.1724 8.20101 20.4861 3.51472C15.7998 -1.17157 8.20185 -1.17157 3.51555 3.51472C-1.17074 8.20101 -1.17074 15.799 3.51555 20.4853C8.20185 25.1716 15.7998 25.1716 20.4861 20.4853Z" fill="currentColor"/>
                 <path d="M15.5619 17.6901H16.8574L8.49855 6.24569H7.10887L15.5619 17.6887V17.6901ZM16.3822 4.87402H18.7195L13.6139 10.9163L19.6201 19.138H14.9177L11.2336 14.1515L7.01881 19.138H4.68005L10.1418 12.6745L4.37939 4.87402H9.20239L12.5318 9.43239L16.3822 4.87402Z" fill="black"/>
               </g>
               <defs>
@@ -248,6 +255,7 @@
       </div>
     </div>
 
+    <!-- Línea divisoria blanca del footer -->
     <div class="footer__copyright">
       <p>Copyright 2025 - Axyoma - Todos los derechos reservados</p>
     </div>

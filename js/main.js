@@ -214,6 +214,84 @@
     }
   });
 
+  // ===== SERVICES SLIDER NAVIGATION =====
+  const servicesSlider = document.querySelector('.services__slider');
+  const servicesNavBar = document.querySelector('.services__nav-bar');
+
+  if (servicesSlider && servicesNavBar) {
+    // Update progress bar on scroll
+    servicesSlider.addEventListener('scroll', function() {
+      const scrollLeft = this.scrollLeft;
+      const scrollWidth = this.scrollWidth - this.clientWidth;
+      const scrollPercentage = (scrollLeft / scrollWidth) * 100;
+
+      servicesNavBar.style.setProperty('--scroll-progress', `${scrollPercentage}%`);
+      if (servicesNavBar.querySelector('::after')) {
+        servicesNavBar.style.background = `linear-gradient(to right, rgba(255,255,255,0.5) ${scrollPercentage}%, #1641F2 ${scrollPercentage}%)`;
+      }
+    });
+
+    // Click on nav bar to scroll
+    servicesNavBar.addEventListener('click', function(e) {
+      const rect = this.getBoundingClientRect();
+      const clickX = e.clientX - rect.left;
+      const percentage = clickX / rect.width;
+      const scrollWidth = servicesSlider.scrollWidth - servicesSlider.clientWidth;
+
+      servicesSlider.scrollTo({
+        left: scrollWidth * percentage,
+        behavior: 'smooth'
+      });
+    });
+
+    // Drag nav bar to scroll
+    let isDragging = false;
+
+    servicesNavBar.addEventListener('mousedown', function(e) {
+      isDragging = true;
+      servicesNavBar.style.cursor = 'grabbing';
+    });
+
+    document.addEventListener('mousemove', function(e) {
+      if (isDragging) {
+        const rect = servicesNavBar.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const percentage = Math.max(0, Math.min(1, x / rect.width));
+        const scrollWidth = servicesSlider.scrollWidth - servicesSlider.clientWidth;
+
+        servicesSlider.scrollLeft = scrollWidth * percentage;
+      }
+    });
+
+    document.addEventListener('mouseup', function() {
+      if (isDragging) {
+        isDragging = false;
+        servicesNavBar.style.cursor = 'pointer';
+      }
+    });
+
+    // Touch support for mobile
+    servicesNavBar.addEventListener('touchstart', function(e) {
+      isDragging = true;
+    });
+
+    servicesNavBar.addEventListener('touchmove', function(e) {
+      if (isDragging) {
+        const touch = e.touches[0];
+        const rect = this.getBoundingClientRect();
+        const x = touch.clientX - rect.left;
+        const percentage = Math.max(0, Math.min(1, x / rect.width));
+        const scrollWidth = servicesSlider.scrollWidth - servicesSlider.clientWidth;
+
+        servicesSlider.scrollLeft = scrollWidth * percentage;
+      }
+    });
+
+    servicesNavBar.addEventListener('touchend', function() {
+      isDragging = false;
+    });
+  }
+
   console.log('Axyoma - JavaScript loaded successfully');
 
 })();
