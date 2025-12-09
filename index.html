@@ -207,47 +207,25 @@
     </section>
 
     <!-- METODOLOGÍA -->
-    <section class="section">
-      <div class="section__container">
-        <h2 class="section__title">Cómo trabajamos</h2>
-        <p class="section__subtitle">Metodología de trabajo</p>
+    <section class="section methodology">
+  <div class="methodology__container">
+  <h2 class="methodology__title">Metodología<br>de trabajo</h2>
 
-        <div class="row" style="margin-top: var(--spacing-xxl);">
-          <div class="col-md-4 text-center">
-            <div style="display: flex; justify-content: center; margin-bottom: var(--spacing-lg);">
-              <div style="width: 80px; height: 80px; border: 2px solid var(--color-primary); border-radius: var(--border-radius-md); display: flex; align-items: center; justify-content: center; color: var(--color-primary); font-size: 2rem;">
-                <!-- ICON: Estrategia -->
-                1
-              </div>
-            </div>
-            <h3 style="font-family: var(--font-secondary); font-style: italic;">Estrategia</h3>
-            <p class="text-gray">Analizamos, investigamos y planificamos</p>
-          </div>
+    <div class="methodology__diagram">
+      <!-- SVG donde se dibujan las líneas dinámicamente -->
+      <svg class="methodology__connections"></svg>
 
-          <div class="col-md-4 text-center">
-            <div style="display: flex; justify-content: center; margin-bottom: var(--spacing-lg);">
-              <div style="width: 80px; height: 80px; border: 2px solid var(--color-primary); border-radius: var(--border-radius-md); display: flex; align-items: center; justify-content: center; color: var(--color-primary); font-size: 2rem;">
-                <!-- ICON: Ejecución -->
-                2
-              </div>
-            </div>
-            <h3 style="font-family: var(--font-secondary); font-style: italic;">Ejecución</h3>
-            <p class="text-gray">Implementamos con precisión y cuidado</p>
-          </div>
-
-          <div class="col-md-4 text-center">
-            <div style="display: flex; justify-content: center; margin-bottom: var(--spacing-lg);">
-              <div style="width: 80px; height: 80px; border: 2px solid var(--color-primary); border-radius: var(--border-radius-md); display: flex; align-items: center; justify-content: center; color: var(--color-primary); font-size: 2rem;">
-                <!-- ICON: Resultados -->
-                3
-              </div>
-            </div>
-            <h3 style="font-family: var(--font-secondary); font-style: italic;">Resultados</h3>
-            <p class="text-gray">Medimos y optimizamos constantemente</p>
-          </div>
-        </div>
+      <div class="methodology__buttons">
+        <button class="methodology__btn" data-step="1">Discovery</button>
+        <button class="methodology__btn" data-step="2">Propuesta a medida</button>
+        <button class="methodology__btn" data-step="3">Medición y mejora continua</button>
+        <button class="methodology__btn" data-step="4">Onboarding</button>
+        <button class="methodology__btn" data-step="5">Ejecución con equipo dedicado</button>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
+
 
     <!-- SECCIÓN CASOS -->
     <section class="section cases">
@@ -411,6 +389,131 @@
 
   <!-- JavaScript -->
   <script src="js/main.js"></script>
+<script>
+  // Variables globales para las líneas
+  let drawLinesFunction = null;
+
+  // Intersection Observer para animar cuando la sección es visible
+  function initMethodologyObserver() {
+    const methodology = document.querySelector('.methodology');
+    if (!methodology) return;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          methodology.classList.add('methodology--visible');
+          // Dibujar las líneas cuando la sección es visible
+          if (drawLinesFunction) {
+            drawLinesFunction();
+          }
+          observer.unobserve(methodology); // Solo animar una vez
+        }
+      });
+    }, {
+      threshold: 0.2 // Activar cuando el 20% de la sección sea visible
+    });
+
+    observer.observe(methodology);
+  }
+
+  function initMethodologyLines() {
+    const container = document.querySelector('.methodology__container');
+    const diagram = document.querySelector('.methodology__diagram');
+    const svg = document.querySelector('.methodology__connections');
+    const title = document.querySelector('.methodology__title');
+    const buttons = Array.from(document.querySelectorAll('.methodology__btn'));
+    const methodology = document.querySelector('.methodology');
+
+    if (!container || !diagram || !svg || !title || buttons.length === 0) return;
+
+    // PARÁMETROS AJUSTABLES PARA MOVER LÍNEAS
+    const OFFSET_X = -150; // Mover todas las líneas horizontalmente (+ derecha, - izquierda)
+    const OFFSET_Y = 0; // Mover todas las líneas verticalmente (+ abajo, - arriba)
+    const TITLE_OFFSET_X = 0; // Ajuste adicional solo para el punto de inicio del título
+    const TITLE_OFFSET_Y = 0; // Ajuste adicional solo para el punto de inicio del título
+
+    // Zigzag pattern from title through buttons
+    // 0: Discovery, 1: Propuesta, 2: Medición, 3: Onboarding, 4: Ejecución
+    const connections = [
+      { from: 'title', to: 0, delay: 0.3 },  // Title -> Discovery
+      { from: 0, to: 3, delay: 0.6 },        // Discovery -> Onboarding
+      { from: 3, to: 1, delay: 0.9 },        // Onboarding -> Propuesta
+      { from: 1, to: 4, delay: 1.2 },        // Propuesta -> Ejecución
+      { from: 4, to: 2, delay: 1.5 },        // Ejecución -> Medición
+    ];
+
+    function drawLines() {
+      // Solo dibujar si la sección ya es visible
+      if (!methodology.classList.contains('methodology--visible')) return;
+
+      // Clear previous lines
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+
+      const containerRect = container.getBoundingClientRect();
+
+      // El SVG cubre todo el container
+      svg.setAttribute('viewBox', `0 0 ${containerRect.width} ${containerRect.height}`);
+      svg.setAttribute('width', containerRect.width);
+      svg.setAttribute('height', containerRect.height);
+      svg.style.left = '0';
+      svg.style.top = '0';
+
+      connections.forEach(({from, to, delay}, index) => {
+        let x1, y1, x2, y2;
+
+        // Starting point - CENTRO
+        if (from === 'title') {
+          const titleRect = title.getBoundingClientRect();
+          // Del centro del título
+          x1 = titleRect.left + titleRect.width / 2 - containerRect.left + OFFSET_X + TITLE_OFFSET_X;
+          y1 = titleRect.top + titleRect.height / 2 - containerRect.top + OFFSET_Y + TITLE_OFFSET_Y;
+        } else {
+          const fromEl = buttons[from];
+          if (!fromEl) return;
+          const fromRect = fromEl.getBoundingClientRect();
+          // Del centro del botón
+          x1 = fromRect.left + fromRect.width / 2 - containerRect.left + OFFSET_X;
+          y1 = fromRect.top + fromRect.height / 2 - containerRect.top + OFFSET_Y;
+        }
+
+        // Ending point - CENTRO
+        const toEl = buttons[to];
+        if (!toEl) return;
+        const toRect = toEl.getBoundingClientRect();
+        // Al centro del botón
+        x2 = toRect.left + toRect.width / 2 - containerRect.left + OFFSET_X;
+        y2 = toRect.top + toRect.height / 2 - containerRect.top + OFFSET_Y;
+
+        const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+        line.classList.add('methodology__line');
+        line.setAttribute('x1', x1);
+        line.setAttribute('y1', y1);
+        line.setAttribute('x2', x2);
+        line.setAttribute('y2', y2);
+
+        // Calcular la longitud de la línea para la animación
+        const length = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+        line.style.strokeDasharray = length;
+        line.style.strokeDashoffset = length;
+        line.style.animation = `drawLine 0.9s ease-out forwards`;
+        line.style.animationDelay = `${delay}s`;
+
+        svg.appendChild(line);
+      });
+    }
+
+    // Guardar la función para usarla desde el observer
+    drawLinesFunction = drawLines;
+
+    // Solo redibujar en resize si ya es visible
+    window.addEventListener('resize', drawLines);
+  }
+
+  window.addEventListener('load', () => {
+    initMethodologyLines();
+    initMethodologyObserver();
+  });
+</script>
 
 </body>
 </html>
